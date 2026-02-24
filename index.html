@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luisa Escalona | Portafolio</title>
+
+<meta name="description" content="Portafolio de diseño gráfico de Luisa Escalona.">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+body {
+  background: #000;
+  margin: 0;
+}
+
+/* ================= TIPOGRAFÍA SOLIDA ================= */
+.scroll-solid {
+  white-space: nowrap;
+  font-family: 'Anton', sans-serif;
+  font-size: 7rem;
+  letter-spacing: 6px;
+  color: white;
+  animation: scrollLeft 30s linear infinite;
+}
+
+/* ================= TIPOGRAFÍA OUTLINE ================= */
+.scroll-outline {
+  white-space: nowrap;
+  font-family: 'Anton', sans-serif;
+  font-size: 7rem;
+  letter-spacing: 6px;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+  color: transparent;
+  animation: scrollRight 40s linear infinite;
+}
+
+/* ================= ANIMACIONES ================= */
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* ================= FADE GALERÍA ================= */
+.fade {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1.2s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<main class="max-w-md mx-auto px-6">
+
+<!-- ================= HERO ================= -->
+<section class="bg-black py-20 overflow-hidden">
+
+  <div class="flex flex-col space-y-6 mb-12 overflow-hidden">
+
+    <div class="scroll-solid">
+      DISEÑO DISEÑO DISEÑO DISEÑO DISEÑO
+    </div>
+
+    <div class="scroll-outline">
+      DISEÑO DISEÑO DISEÑO DISEÑO DISEÑO
+    </div>
+
+  </div>
+
+  <div class="flex justify-center">
+    <img src="assets/images/3.png"
+         class="w-full h-[42vh] object-cover object-bottom rounded-xl shadow-2xl">
+  </div>
+
+</section>
+
+<!-- ================= GALERÍA ================= -->
+<section class="flex flex-col space-y-32 pb-40">
+
+  <img src="assets/images/4.png" class="fade w-full rounded-xl shadow-lg">
+  <img src="assets/images/5.png" class="fade w-full rounded-xl shadow-lg">
+  <img src="assets/images/6.png" class="fade w-full rounded-xl shadow-lg">
+  <img src="assets/images/7.png" class="fade w-full rounded-xl shadow-lg">
+  <img src="assets/images/8.png" class="fade w-full rounded-xl shadow-lg">
+  <img src="assets/images/9.png" class="fade w-full rounded-xl shadow-lg">
+  <img src="assets/images/10.png" class="fade w-full rounded-xl shadow-lg">
+  <img src="assets/images/11.png" class="fade w-full rounded-xl shadow-lg">
+  <img src="assets/images/12.png" class="fade w-full rounded-xl shadow-lg">
+  <img src="assets/images/13.png" class="fade w-full rounded-xl shadow-lg">
+  <img src="assets/images/14.png" class="fade w-full rounded-xl shadow-lg">
+
+</section>
+
+</main>
+
+<!-- ================= BOTÓN WHATSAPP ================= -->
+<a href="https://wa.me/521XXXXXXXXXX" target="_blank"
+class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-xl z-50">
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
+class="w-7 h-7 fill-black">
+<path d="M16 .396C7.163.396 0 7.559 0 16.396c0 2.89.757 5.612 2.07 7.972L.396 32l7.829-1.646A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837.396 16 .396z"/>
+</svg>
+
+</a>
+
+<script>
+const items = document.querySelectorAll('.fade');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.2 });
+
+items.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
